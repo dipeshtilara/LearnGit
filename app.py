@@ -4,10 +4,15 @@ import json
 from datetime import datetime
 import time
 
-import os, pathlib, streamlit as st
-st.write("CWD:", os.getcwd())
-st.write("Here:", pathlib.Path(__file__).parent.resolve())
-st.write("Dir listing:", os.listdir())
+# app.py
+from pathlib import Path
+import streamlit as st
+
+def load_css():
+    css_path = Path(__file__).parent / "styles.css"   # <- file is at repo root
+    st.markdown(f"<style>{css_path.read_text(encoding='utf-8')}</style>",
+                unsafe_allow_html=True)
+
 
 
 # Page Configuration
@@ -18,11 +23,13 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+'''
 # Load custom CSS
 def load_css():
     with open('streamlit_conversion/styles.css', 'r') as f:
         css = f.read()
     st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
+'''
 
 # Initialize session state for progress tracking
 def initialize_session_state():
