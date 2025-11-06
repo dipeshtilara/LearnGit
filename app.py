@@ -4,6 +4,12 @@ import json
 from datetime import datetime
 import time
 
+import os, pathlib, streamlit as st
+st.write("CWD:", os.getcwd())
+st.write("Here:", pathlib.Path(__file__).parent.resolve())
+st.write("Dir listing:", os.listdir())
+
+
 # Page Configuration
 st.set_page_config(
     page_title="GitHub Tutorial for 9th Graders",
